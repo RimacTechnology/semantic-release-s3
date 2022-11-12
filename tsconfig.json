@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "declaration": true,
+        "esModuleInterop": true,
+        "lib": ["ES2021", "DOM", "DOM.ITERABLE"],
+        "moduleResolution": "node",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": "lib",
+        "strict": true,
+        "target": "ES2021",
+        "module": "CommonJS",
+        "typeRoots": ["node_modules/@types"],
+        "noUncheckedIndexedAccess": true
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"]
+}
