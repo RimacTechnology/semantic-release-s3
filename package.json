@@ -18,11 +18,11 @@
         "build": "tsc",
         "cm": "cz",
         "postinstall": "husky install",
-        "lint": "yarn lint:eslint & yarn lint:prettier & yarn lint:package-json & yarn lint:spell",
+        "lint": "yarn lint:eslint & yarn lint:prettier & yarn lint:package-json & yarn lint:cspell",
+        "lint:cspell": "cspell --no-progress --no-summary '**'",
         "lint:eslint": "eslint './src' --quiet --cache --cache-strategy content --cache-location '.eslintcache/'",
         "lint:package-json": "npmPkgJsonLint --configFile ./.packagerc.js .",
         "lint:prettier": "prettier --loglevel warn --no-editorconfig --no-error-on-unmatched-pattern --check \"./**/*{yaml,yml,json,md}\"",
-        "lint:spell": "cspell --no-progress --no-summary '**'",
         "prepack": "pinst --disable",
         "postpack": "pinst --enable",
         "release": "semantic-release"
@@ -69,7 +69,7 @@
     },
     "packageManager": "yarn@3.2.4",
     "engines": {
-        "node": ">=16.14",
+        "node": ">=18.10",
         "yarn": ">=3"
     },
     "publishConfig": {

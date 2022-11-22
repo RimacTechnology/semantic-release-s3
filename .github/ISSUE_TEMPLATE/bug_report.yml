@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a problem with `semantic-release-ecr`
+description: Report a problem with `semantic-release-s3`
 labels: [bug]
 body:
     - type: checkboxes
@@ -8,20 +8,20 @@ body:
           label: Issues
           options:
               - label:
-                    'I have checked [existing issues](https://github.com/RimacTechnology/semantic-release-ecr/issues) and there
-                    are no issues with the same problem.'
+                    'I have checked [existing issues](https://github.com/RimacTechnology/semantic-release-s3/issues) and there are
+                    no issues with the same problem.'
                 required: true
 
     - type: input
       attributes:
-          label: '`semantic-release-ecr` Version You Are Using'
+          label: '`semantic-release-s3` Version You Are Using'
       validations:
           required: true
 
     - type: textarea
       attributes:
           label: 'Your Config'
-          description: 'Paste the config you are using with `semantic-release-ecr` from semantic release config file'
+          description: 'Paste the config you are using with `semantic-release-s3` from semantic release config file'
       validations:
           required: true
 

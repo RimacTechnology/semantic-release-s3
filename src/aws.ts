@@ -1,6 +1,7 @@
 import type { ReadStream } from 'fs'
 
 import type aws from 'aws-sdk'
+import type { AWSError } from 'aws-sdk'
 import {
     Credentials,
     S3,
@@ -47,8 +48,7 @@ export class AWS {
                 Key: pathToDelete,
             }
 
-            this.awsS3.deleteObject(deleteParam, (error) => {
-                // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+            this.awsS3.deleteObject(deleteParam, (error: AWSError | null) => {
                 if (error) {
                     reject(error)
                 }
@@ -63,8 +63,7 @@ export class AWS {
             allKeys: string[] = [],
         ): Promise<string[]> {
             return new Promise((resolve, reject) => {
-                s3.listObjectsV2(param, async (error, data) => {
-                    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+                s3.listObjectsV2(param, async (error: AWSError | null, data) => {
                     if (error) {
                         reject(error)
                     } else {
@@ -107,8 +106,7 @@ export class AWS {
         }
 
         return new Promise((resolve, reject) => {
-            this.awsS3.upload(uploadParams, (error: Error, data: ManagedUpload.SendData) => {
-                // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+            this.awsS3.upload(uploadParams, (error: Error | null, data: ManagedUpload.SendData) => {
                 if (error) {
                     reject(error)
                 } else {
