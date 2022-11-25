@@ -28,9 +28,6 @@ export async function publish(config: PluginConfig, context: Context) {
     // eslint-disable-next-line no-console
     console.log('branch', context.branch)
 
-    // eslint-disable-next-line no-console
-    console.log('branch name', context.branch.name)
-
     const existingFiles = await s3.getExistingFiles(config.bucketName)
 
     const fileDifference = existingFiles.filter((file) => {
