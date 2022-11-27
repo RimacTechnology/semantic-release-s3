@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.0.0...v1.1.0) (2022-11-27)
+
+
+### Features
+
+* update dependencies ([c185a2d](https://github.com/RimacTechnology/semantic-release-s3/commit/c185a2dfbdb3e75e83a6b0a55bec819c582722b7))
+
 ## 1.0.0 (2022-11-27)
 
 
