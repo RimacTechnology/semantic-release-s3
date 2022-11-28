@@ -33,7 +33,9 @@ The plugin can be configured in the
         [
             "@rimac-technology/semantic-release-s3",
             {
-                "bucketName": "bucket-name",
+                "bucketName": {
+                  "branchName": "bucket-name"
+                },
                 "directoryPath": "directoryName/**/*"
             }
         ]
@@ -56,10 +58,10 @@ options with `accessKeyName` and `secretAccessKeyName`.
 ### Options
 
 | Options               | Description                                                                          | Default | Required |
-| --------------------- | ------------------------------------------------------------------------------------ | ------- | :------: |
+| --------------------- |--------------------------------------------------------------------------------------| ------- | :------: |
 | `accessKeyName`       | Environmental variable name that is used to override `AWS_ACCESS_KEY_ID`             |         |          |
 | `secretAccessKeyName` | Environmental variable name that is used to override `AWS_SECRET_ACCESS_KEY`         |         |          |
-| `bucketName`          | AWS S3 bucket name where the files will be uploaded                                  |         |    ✓     |
+| `bucketName`          | AWS S3 bucket name defined for each branch                                           |         |    ✓     |
 | `directoryPath`       | Path to directory which will be uploaded to the bucket                               |         |    ✓     |
 | `removeDirectoryRoot` | Flag that determines will the root directory of the given `directoryPath` be removed |         |          |
 
@@ -76,7 +78,10 @@ options with `accessKeyName` and `secretAccessKeyName`.
             {
                 "accessKeyName": "ACCESS_KEY_ENV_VARIABLE_NAME",
                 "secretAccessKeyName": "SECRET_ACCESS_KEY_ENV_VARIABLE_NAME",
-                "bucketName": "s3-bucket-name",
+                "bucketName": {
+                  "branchName" : "s3-bucket-name",
+                  "anotherBranchName" : "another-s3-bucket-name" 
+                },
                 "directoryPath": "directoryName/**/*",
                 "removeDirectoryRoot": true
             }

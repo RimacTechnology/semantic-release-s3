@@ -1,3 +1,46 @@
+## [1.2.0-alpha.1](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.1.0...v1.2.0-alpha.1) (2022-11-28)
+
+
+### Features
+
+* add option to define different bucket name per branch ([e3d68ff](https://github.com/RimacTechnology/semantic-release-s3/commit/e3d68ffff3475c3598a9678aaf30b11d31a761e1))
+* update ([0a6cf82](https://github.com/RimacTechnology/semantic-release-s3/commit/0a6cf826d7781ab250a6fbba3ee49ac96c129afc))
+* update ([abf174e](https://github.com/RimacTechnology/semantic-release-s3/commit/abf174e993bffc955b2b48b42bb32f4f873e8dda))
+* update ([3b582c4](https://github.com/RimacTechnology/semantic-release-s3/commit/3b582c4f5c286ea44ff84a506f5696849551eaea))
+* update ([a4080b9](https://github.com/RimacTechnology/semantic-release-s3/commit/a4080b935876f381b7c0f5b315ee1f9170b87e54))
+* update ([66712f9](https://github.com/RimacTechnology/semantic-release-s3/commit/66712f92cfee60940a4c89ec63571042ada6c5f7))
+* update 92 ([5c71833](https://github.com/RimacTechnology/semantic-release-s3/commit/5c718333e5fd4368aa4f93abfca9026deb1fdfed))
+* update changelog ([df21ebf](https://github.com/RimacTechnology/semantic-release-s3/commit/df21ebf7d9008c3589b43f961190dc295fd970e9))
+
+
+### Other
+
+* **release:** 1.2.0-alpha.1 [skip ci] ([e7f80b2](https://github.com/RimacTechnology/semantic-release-s3/commit/e7f80b2b2d9d6cb7a9604b33417dff2274383996))
+* **release:** 1.2.0-alpha.1 [skip ci] ([cfabf81](https://github.com/RimacTechnology/semantic-release-s3/commit/cfabf81fdd288368e24d553530d54f4c9b7c1a81))
+* **release:** 1.2.0-alpha.1 [skip ci] ([6219ee5](https://github.com/RimacTechnology/semantic-release-s3/commit/6219ee5a8552909147a97324cb5098382ba51c7b))
+
+## [1.2.0-alpha.1](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.1.0...v1.2.0-alpha.1) (2022-11-28)
+
+
+### Features
+
+* add option to define different bucket name per branch ([e3d68ff](https://github.com/RimacTechnology/semantic-release-s3/commit/e3d68ffff3475c3598a9678aaf30b11d31a761e1))
+* update 92 ([5c71833](https://github.com/RimacTechnology/semantic-release-s3/commit/5c718333e5fd4368aa4f93abfca9026deb1fdfed))
+* update changelog ([df21ebf](https://github.com/RimacTechnology/semantic-release-s3/commit/df21ebf7d9008c3589b43f961190dc295fd970e9))
+
+
+### Other
+
+* **release:** 1.2.0-alpha.1 [skip ci] ([cfabf81](https://github.com/RimacTechnology/semantic-release-s3/commit/cfabf81fdd288368e24d553530d54f4c9b7c1a81))
+* **release:** 1.2.0-alpha.1 [skip ci] ([6219ee5](https://github.com/RimacTechnology/semantic-release-s3/commit/6219ee5a8552909147a97324cb5098382ba51c7b))
+
+## [1.2.0-alpha.1](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.1.0...v1.2.0-alpha.1) (2022-11-28)
+
+
+### Features
+
+* add option to define different bucket name per branch ([e3d68ff](https://github.com/RimacTechnology/semantic-release-s3/commit/e3d68ffff3475c3598a9678aaf30b11d31a761e1))
+
 ## [1.1.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.0.0...v1.1.0) (2022-11-27)
 
 

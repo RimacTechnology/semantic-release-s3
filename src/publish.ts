@@ -17,6 +17,13 @@ export async function publish(config: PluginConfig, context: Context) {
 
     const filePaths = await globby(config.directoryPath)
 
+    const bucketName = config.bucketName[context.branch.name]
+
+    if(!bucketName) {
+        throw new Error(`Missing bucket name for ${context.branch.name} branch.
+        Please check your plugin configuration and add a valid bucket name.`)
+    }
+
     let removedRootFilesPaths: string[] = []
 
     if (config.removeDirectoryRoot) {
@@ -25,7 +32,7 @@ export async function publish(config: PluginConfig, context: Context) {
         })
     }
 
-    const existingFiles = await s3.getExistingFiles(config.bucketName)
+    const existingFiles = await s3.getExistingFiles(bucketName)
 
     const fileDifference = existingFiles.filter((file) => {
         if (config.removeDirectoryRoot) {
@@ -38,7 +45,7 @@ export async function publish(config: PluginConfig, context: Context) {
     await Promise.all(
         filePaths.map(async (filePath, index) => {
             return s3.uploadFile(
-                config.bucketName,
+                bucketName,
                 removedRootFilesPaths[index] ?? filePath,
                 fs.createReadStream(filePath),
             )
@@ -48,7 +55,7 @@ export async function publish(config: PluginConfig, context: Context) {
     await Promise.all(
         fileDifference.map(async (pathToDelete) => {
             return s3.deleteFile(
-                config.bucketName,
+                bucketName,
                 pathToDelete,
             )
         })
