@@ -8,11 +8,11 @@ export interface PluginConfig extends Config {
      */
     readonly accessKeyName?: string
     /**
-     * Bucket name
+     * Bucket configuration
      *
      * @default ""
      */
-    readonly bucketName: string
+    readonly bucketName: Record<string, string>
     /**
      * Path to directory
      *
