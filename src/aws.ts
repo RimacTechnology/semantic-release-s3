@@ -61,9 +61,14 @@ export class AWS {
             s3: S3,
             param: ListObjectsV2Request,
             allKeys: string[] = [],
-        ): Promise<string[]> {
+        ): Promise<unknown> {
             return new Promise((resolve, reject) => {
                 s3.listObjectsV2(param, async (error: AWSError | null, data) => {
+                    // eslint-disable-next-line no-console
+                    console.log(error)
+                    // eslint-disable-next-line no-console
+                    console.log(data)
+
                     if (error) {
                         reject(error)
                     } else if (data.Contents) {
