@@ -64,34 +64,27 @@ export class AWS {
         ): Promise<string[]> {
             return new Promise((resolve, reject) => {
                 s3.listObjectsV2(param, async (error: AWSError | null, data) => {
-                    // eslint-disable-next-line no-console
-                    console.log(error)
-                    // eslint-disable-next-line no-console
-                    console.log(data)
-
                     if (error) {
                         reject(error)
-                    } else if (data.Contents) {
-                        // eslint-disable-next-line no-console
-                        console.log('else if contents')
-                        allKeys.push(...data.Contents.map((content) => {
-                            return content.Key as string
-                        }))
-                    } else if (data.IsTruncated) {
-                        // eslint-disable-next-line no-console
-                        console.log('else if truncated')
-                        resolve(await existingFilesKeys(
-                            s3,
-                            {
-                                ...param,
-                                ContinuationToken: data.NextContinuationToken,
-                            },
-                            allKeys
-                        ))
                     } else {
-                        // eslint-disable-next-line no-console
-                        console.log('else resolve')
-                        resolve(allKeys)
+                        if (data.Contents) {
+                            allKeys.push(...data.Contents.map((content) => {
+                                return content.Key as string
+                            }))
+                        }
+
+                        if (data.IsTruncated) {
+                            resolve(await existingFilesKeys(
+                                s3,
+                                {
+                                    ...param,
+                                    ContinuationToken: data.NextContinuationToken,
+                                },
+                                allKeys
+                            ))
+                        } else {
+                            resolve(allKeys)
+                        }
                     }
                 })
             })
