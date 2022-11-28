@@ -8,11 +8,11 @@ export interface PluginConfig extends Config {
      */
     readonly accessKeyName?: string
     /**
-     * Bucket name
+     * Bucket configuration
      *
      * @default ""
      */
-    readonly bucketName: string
+    readonly bucketName: Bucket
     /**
      * Path to directory
      *
@@ -35,6 +35,21 @@ export interface PluginConfig extends Config {
 
 export type WithoutNullableKeys<Type> = {
     [Key in keyof Type]-?: WithoutNullableKeys<NonNullable<Type[Key]>>
+}
+
+export type Bucket = {
+    /**
+     * Bucket name to upload alpha branch
+     *
+     * @default ""
+     */
+    alpha: string
+    /**
+     * Bucket name to upload master branch
+     *
+     * @default ""
+     */
+    master: string
 }
 
 export type AWSConfig = {

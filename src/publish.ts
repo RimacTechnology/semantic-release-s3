@@ -6,6 +6,7 @@ import type { Context } from 'semantic-release'
 import { AWS } from './aws'
 import type {
     AWSConfig,
+    Bucket,
     PluginConfig,
     WithoutNullableKeys,
 } from './types'
@@ -17,6 +18,8 @@ export async function publish(config: PluginConfig, context: Context) {
 
     const filePaths = await globby(config.directoryPath)
 
+    const bucketName = config.bucketName[context.branch.name as keyof Bucket]
+
     let removedRootFilesPaths: string[] = []
 
     if (config.removeDirectoryRoot) {
@@ -25,23 +28,7 @@ export async function publish(config: PluginConfig, context: Context) {
         })
     }
 
-    // eslint-disable-next-line no-console
-    console.log('filePaths', filePaths)
-
-    // eslint-disable-next-line no-console
-    console.log('context branch', context.branch.name)
-
-    const existingFiles = await s3.getExistingFiles(config.bucketName).catch((error: unknown) => {
-        // eslint-disable-next-line no-console
-        console.log('catch error', error)
-    })
-
-    if(!existingFiles) {
-        throw new Error('no existingFiles')
-    }
-
-    // eslint-disable-next-line no-console
-    console.log('existingFiles', existingFiles)
+    const existingFiles = await s3.getExistingFiles(bucketName)
 
     const fileDifference = existingFiles.filter((file) => {
         if (config.removeDirectoryRoot) {
@@ -51,13 +38,10 @@ export async function publish(config: PluginConfig, context: Context) {
         return !filePaths.includes(file)
     })
 
-    // eslint-disable-next-line no-console
-    console.log('fileDifference', fileDifference)
-
     await Promise.all(
         filePaths.map(async (filePath, index) => {
             return s3.uploadFile(
-                config.bucketName,
+                bucketName,
                 removedRootFilesPaths[index] ?? filePath,
                 fs.createReadStream(filePath),
             )
@@ -67,7 +51,7 @@ export async function publish(config: PluginConfig, context: Context) {
     await Promise.all(
         fileDifference.map(async (pathToDelete) => {
             return s3.deleteFile(
-                config.bucketName,
+                bucketName,
                 pathToDelete,
             )
         })
