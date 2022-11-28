@@ -1,3 +1,11 @@
+## [1.2.0-alpha.4](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.2.0-alpha.3...v1.2.0-alpha.4) (2022-11-28)
+
+
+### Features
+
+* log getExistingFiles ([ecddf33](https://github.com/RimacTechnology/semantic-release-s3/commit/ecddf336bb5a0549f82e6e000e1d6269f2e6c65c))
+* log getExistingFiles error and data ([9c505fb](https://github.com/RimacTechnology/semantic-release-s3/commit/9c505fb6e29bffcddc81d38ef26dc30061a64a87))
+
 ## [1.2.0-alpha.3](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.2.0-alpha.2...v1.2.0-alpha.3) (2022-11-28)
 
 
