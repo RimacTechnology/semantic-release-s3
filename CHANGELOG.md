@@ -1,3 +1,10 @@
+## [1.2.0-alpha.7](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.2.0-alpha.6...v1.2.0-alpha.7) (2022-11-28)
+
+
+### Features
+
+* add bucket options for different branches ([fa227bc](https://github.com/RimacTechnology/semantic-release-s3/commit/fa227bc0f407a5ebd1b5ec4ba5a13d32e8d7c753))
+
 ## [1.2.0-alpha.6](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.2.0-alpha.5...v1.2.0-alpha.6) (2022-11-28)
 
 
