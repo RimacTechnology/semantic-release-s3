@@ -31,10 +31,17 @@ export async function publish(config: PluginConfig, context: Context) {
     // eslint-disable-next-line no-console
     console.log('context branch', context.branch.name)
 
-    const existingFiles = await s3.getExistingFiles(config.bucketName)
+    const existingFiles = await s3.getExistingFiles(config.bucketName).catch((error: unknown) => {
+        // eslint-disable-next-line no-console
+        console.log('error', error)
+    })
 
     // eslint-disable-next-line no-console
     console.log('existingFiles', existingFiles)
+
+    if(!existingFiles) {
+        throw new Error('error')
+    }
 
     const fileDifference = existingFiles.filter((file) => {
         if (config.removeDirectoryRoot) {
