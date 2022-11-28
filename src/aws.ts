@@ -66,21 +66,25 @@ export class AWS {
                 s3.listObjectsV2(param, async (error: AWSError | null, data) => {
                     if (error) {
                         reject(error)
-                    } else if (data.Contents) {
-                        allKeys.push(...data.Contents.map((content) => {
-                            return content.Key as string
-                        }))
-                    } else if (data.IsTruncated) {
-                        resolve(await existingFilesKeys(
-                            s3,
-                            {
-                                ...param,
-                                ContinuationToken: data.NextContinuationToken,
-                            },
-                            allKeys
-                        ))
                     } else {
-                        resolve(allKeys)
+                        if (data.Contents) {
+                            allKeys.push(...data.Contents.map((content) => {
+                                return content.Key as string
+                            }))
+                        }
+
+                        if (data.IsTruncated) {
+                            resolve(await existingFilesKeys(
+                                s3,
+                                {
+                                    ...param,
+                                    ContinuationToken: data.NextContinuationToken,
+                                },
+                                allKeys
+                            ))
+                        } else {
+                            resolve(allKeys)
+                        }
                     }
                 })
             })
