@@ -26,9 +26,15 @@ export async function publish(config: PluginConfig, context: Context) {
     }
 
     // eslint-disable-next-line no-console
+    console.log('filePaths', filePaths)
+
+    // eslint-disable-next-line no-console
     console.log('context branch', context.branch.name)
 
     const existingFiles = await s3.getExistingFiles(config.bucketName)
+
+    // eslint-disable-next-line no-console
+    console.log('existingFiles', existingFiles)
 
     const fileDifference = existingFiles.filter((file) => {
         if (config.removeDirectoryRoot) {
@@ -37,6 +43,9 @@ export async function publish(config: PluginConfig, context: Context) {
 
         return !filePaths.includes(file)
     })
+
+    // eslint-disable-next-line no-console
+    console.log('fileDifference', fileDifference)
 
     await Promise.all(
         filePaths.map(async (filePath, index) => {
