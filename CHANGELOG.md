@@ -1,3 +1,10 @@
+## [1.2.0-alpha.3](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.2.0-alpha.2...v1.2.0-alpha.3) (2022-11-28)
+
+
+### Features
+
+* add catch to existingFiles ([edf4f04](https://github.com/RimacTechnology/semantic-release-s3/commit/edf4f04e55d1818585b8c225c8670d71373e2e5b))
+
 ## [1.2.0-alpha.2](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.2.0-alpha.1...v1.2.0-alpha.2) (2022-11-28)
 
 
