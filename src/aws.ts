@@ -61,7 +61,7 @@ export class AWS {
             s3: S3,
             param: ListObjectsV2Request,
             allKeys: string[] = [],
-        ): Promise<unknown> {
+        ): Promise<string[]> {
             return new Promise((resolve, reject) => {
                 s3.listObjectsV2(param, async (error: AWSError | null, data) => {
                     // eslint-disable-next-line no-console

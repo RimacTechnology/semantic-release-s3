@@ -33,15 +33,15 @@ export async function publish(config: PluginConfig, context: Context) {
 
     const existingFiles = await s3.getExistingFiles(config.bucketName).catch((error: unknown) => {
         // eslint-disable-next-line no-console
-        console.log('error', error)
+        console.log('catch error', error)
     })
+
+    if(!existingFiles) {
+        throw new Error('no existingFiles')
+    }
 
     // eslint-disable-next-line no-console
     console.log('existingFiles', existingFiles)
-
-    if(!existingFiles) {
-        throw new Error('error')
-    }
 
     const fileDifference = existingFiles.filter((file) => {
         if (config.removeDirectoryRoot) {
