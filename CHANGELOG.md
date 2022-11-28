@@ -1,3 +1,10 @@
+## [1.2.0-alpha.1](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.1.0...v1.2.0-alpha.1) (2022-11-28)
+
+
+### Features
+
+* add option to define different bucket name per branch ([73e1adc](https://github.com/RimacTechnology/semantic-release-s3/commit/73e1adc5fb54bb7f28796a1d3e8cb3933e458a1e))
+
 ## [1.1.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.0.0...v1.1.0) (2022-11-27)
 
 
