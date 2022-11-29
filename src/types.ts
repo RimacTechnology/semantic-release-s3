@@ -12,7 +12,7 @@ export interface PluginConfig extends Config {
      *
      * @default ""
      */
-    readonly bucketName: Record<string, string>
+    readonly bucketConfiguration: Record<string, string>
     /**
      * Path to directory
      *
@@ -53,4 +53,4 @@ export type AWSConfig = {
 }
 
 export type ErrorCodes =
-    'ENOACCESSKEYID' | 'ENOBUCKETNAME' | 'ENODIRECTORYPATH' | 'ENOSECRETACCESSKEY'
+    'ENOACCESSKEYID' | 'ENOBUCKETCONFIGURATION' | 'ENODIRECTORYPATH' | 'ENOSECRETACCESSKEY'

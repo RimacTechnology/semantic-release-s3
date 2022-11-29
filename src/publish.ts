@@ -17,10 +17,10 @@ export async function publish(config: PluginConfig, context: Context) {
 
     const filePaths = await globby(config.directoryPath)
 
-    const bucketName = config.bucketName[context.branch.name]
+    const bucketName = config.bucketConfiguration[context.branch.name]
 
     if(!bucketName) {
-        throw new Error(`Missing bucket name for ${context.branch.name} branch.
+        throw new Error(`Missing bucket configuration for ${context.branch.name} branch.
         Please check your plugin configuration and add a valid bucket name.`)
     }
 

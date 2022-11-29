@@ -18,8 +18,8 @@ export function verifyConditions(config: PluginConfig, context: Context): void {
         errors.push(getError('ENOSECRETACCESSKEY'))
     }
 
-    if(!Object.keys(config.bucketName).length) {
-        errors.push(getError('ENOBUCKETNAME'))
+    if(!Object.keys(config.bucketConfiguration).length) {
+        errors.push(getError('ENOBUCKETCONFIGURATION'))
     }
 
     if (!config.directoryPath) {
