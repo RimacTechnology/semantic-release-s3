@@ -1,3 +1,10 @@
+## [1.3.0-alpha.2](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.3.0-alpha.1...v1.3.0-alpha.2) (2022-11-29)
+
+
+### Features
+
+* update documentation ([1b8b3dd](https://github.com/RimacTechnology/semantic-release-s3/commit/1b8b3dd324a229b9e7721f94d16b1ef035350c3e))
+
 ## [1.3.0-alpha.1](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.2.0...v1.3.0-alpha.1) (2022-11-29)
 
 
