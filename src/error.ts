@@ -40,7 +40,7 @@ export function getError(code: ErrorCodes): SemanticReleaseError {
         return new SemanticReleaseError(
             'No aws bucket name specified.',
             'ENOBUCKETNAME',
-            'An aws bucket name must be specified to successfully upload files.'
+            'An aws bucket name must be specified for at least one branch to successfully upload files.'
         )
     }
 
