@@ -1,3 +1,10 @@
+## [1.3.0-alpha.1](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.2.0...v1.3.0-alpha.1) (2022-11-29)
+
+
+### Features
+
+* replace bucketName with bucketConfiguration in PluginConfig ([5fc0980](https://github.com/RimacTechnology/semantic-release-s3/commit/5fc09802fdad9d509184b0c8f5ab779a5616203f))
+
 ## [1.2.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.1.0...v1.2.0) (2022-11-29)
 
 

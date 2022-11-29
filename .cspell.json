@@ -16,7 +16,7 @@
         "conventionalcommits",
         "ENOACCESSKEYID",
         "ENOSECRETACCESSKEY",
-        "ENOBUCKETNAME",
+        "ENOBUCKETCONFIGURATION",
         "ENODIRECTORYPATH"
     ]
 }
