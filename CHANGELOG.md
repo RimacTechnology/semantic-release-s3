@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.3.0...v1.4.0) (2022-11-30)
+
+
+### Features
+
+* replace bucketName with bucketConfiguration in documentation ([a1e27bf](https://github.com/RimacTechnology/semantic-release-s3/commit/a1e27bf57ddcbef0c912dd9bd13a172f99bc1e78))
+
 ## [1.4.0-alpha.1](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.3.0...v1.4.0-alpha.1) (2022-11-30)
 
 
