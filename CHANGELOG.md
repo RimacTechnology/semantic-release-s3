@@ -1,3 +1,14 @@
+## [2.0.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.4.0...v2.0.0) (2023-02-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* plugin configuration has changed
+
+### Features
+
+* update plugin configuration options ([#13](https://github.com/RimacTechnology/semantic-release-s3/issues/13)) ([95d58c1](https://github.com/RimacTechnology/semantic-release-s3/commit/95d58c1ab4aaf7d1faef946b889607d96a72cbf5))
+
 ## [1.4.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.3.0...v1.4.0) (2022-11-30)
 
 
