@@ -19,15 +19,9 @@ import type {
 
 export class AWS {
     public static loadConfig(config: PluginConfig, context: Context): AWSConfig {
-        let accessKey: string | null
-        let secretAccessKey: string | null
-
-        accessKey = context.env[config.accessKeyName ?? 'AWS_ACCESS_KEY_ID'] ?? null
-        secretAccessKey = context.env[config.secretAccessKeyName ?? 'AWS_SECRET_ACCESS_KEY'] ?? null
-
         return {
-            accessKey,
-            secretAccessKey,
+            awsAccessKey: context.env[config.awsAccessKeyName ?? 'AWS_ACCESS_KEY_ID'] ?? null,
+            awsSecretAccessKey: context.env[config.awsSecretAccessKeyName ?? 'AWS_SECRET_ACCESS_KEY'] ?? null,
         }
     }
 
@@ -80,7 +74,7 @@ export class AWS {
                                     ...param,
                                     ContinuationToken: data.NextContinuationToken,
                                 },
-                                allKeys
+                                allKeys,
                             ))
                         } else {
                             resolve(allKeys)
@@ -94,7 +88,7 @@ export class AWS {
             this.awsS3,
             {
                 Bucket: bucket,
-            }
+            },
         )
     }
 

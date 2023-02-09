@@ -36,11 +36,11 @@ export function getError(code: ErrorCodes): SemanticReleaseError {
         )
     }
 
-    case 'ENOBUCKETCONFIGURATION': {
+    case 'ENOS3BUCKET': {
         return new SemanticReleaseError(
-            'No aws bucket configuration specified.',
-            'ENOBUCKETCONFIGURATION',
-            'An aws bucket configuration must be specified for at least one branch to successfully upload files.'
+            'No aws bucket specified.',
+            'ENOS3BUCKET',
+            'An aws bucket configuration must be specified or configured for at least one branch to successfully upload files.'
         )
     }
 
