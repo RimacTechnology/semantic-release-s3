@@ -54,7 +54,7 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                   node-version: 18
-              run: yarn release
+            - run: yarn release
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
                   GH_TOKEN: ${{ secrets.GH_TOKEN }}
