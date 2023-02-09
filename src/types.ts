@@ -6,13 +6,13 @@ export interface PluginConfig extends Config {
      *
      * @default ""
      */
-    readonly accessKeyName?: string
+    readonly awsAccessKeyName?: string
     /**
-     * Bucket configuration
+     * Secret access key env variable name
      *
      * @default ""
      */
-    readonly bucketConfiguration: Record<string, string>
+    readonly awsSecretAccessKeyName?: string
     /**
      * Path to directory
      *
@@ -26,11 +26,11 @@ export interface PluginConfig extends Config {
      */
     readonly removeDirectoryRoot?: boolean
     /**
-     * Secret access key env variable name
+     * Bucket configuration
      *
      * @default ""
      */
-    readonly secretAccessKeyName?: string
+    readonly s3Bucket: Record<string, string> | string
 }
 
 export type WithoutNullableKeys<Type> = {
@@ -43,14 +43,14 @@ export type AWSConfig = {
      *
      * @default ""
      */
-    accessKey: string | null
+    awsAccessKey: string | null
     /**
      * AWS secret access key
      *
      * @default ""
      */
-    secretAccessKey: string | null
+    awsSecretAccessKey: string | null
 }
 
 export type ErrorCodes =
-    'ENOACCESSKEYID' | 'ENOBUCKETCONFIGURATION' | 'ENODIRECTORYPATH' | 'ENOSECRETACCESSKEY'
+    'ENOACCESSKEYID' | 'ENODIRECTORYPATH' | 'ENOS3BUCKET' | 'ENOSECRETACCESSKEY'

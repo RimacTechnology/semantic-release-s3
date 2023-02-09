@@ -6,10 +6,10 @@
 [![Conventional Changelog](https://img.shields.io/badge/changelog-conventional-brightgreen.svg)](http://conventional-changelog.github.io)
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-conventionalcommits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
-| Step               | Description                                                                                                                                      |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Step               | Description                                                                                                                                               |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `verifyConditions` | Verify the presence of the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` environment variables and `bucketConfiguration` and `directoryPath`plugin options |
-| `publish`          | [Upload selected files and directories](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html) to the S3 bucket                        |
+| `publish`          | [Upload selected files and directories](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html) to the S3 bucket                                 |
 
 ```bash
 # For npm users
@@ -33,8 +33,8 @@ The plugin can be configured in the
         [
             "@rimac-technology/semantic-release-s3",
             {
-                "bucketConfiguration": {
-                  "branchName": "bucket-name"
+                "s3Bucket": {
+                    "branchName": "s3-bucket-name"
                 },
                 "directoryPath": "directoryName/**/*"
             }
@@ -57,13 +57,13 @@ options with `accessKeyName` and `secretAccessKeyName`.
 
 ### Options
 
-| Options               | Description                                                                          | Default | Required |
-|-----------------------|--------------------------------------------------------------------------------------|---------|:--------:|
-| `accessKeyName`       | Environmental variable name that is used to override `AWS_ACCESS_KEY_ID`             |         |          |
-| `secretAccessKeyName` | Environmental variable name that is used to override `AWS_SECRET_ACCESS_KEY`         |         |          |
-| `bucketConfiguration` | S3 bucket configuration, defines an S3 bucket for each branch                        |         |    ✓     |
-| `directoryPath`       | Path to directory which will be uploaded to the bucket                               |         |    ✓     |
-| `removeDirectoryRoot` | Flag that determines will the root directory of the given `directoryPath` be removed |         |          |
+| Options                  | Description                                                                          | Default | Required |
+|--------------------------|--------------------------------------------------------------------------------------| ------- | :------: |
+| `awsAccessKeyName`       | Environmental variable name that is used to override `AWS_ACCESS_KEY_ID`             |         |          |
+| `awsSecretAccessKeyName` | Environmental variable name that is used to override `AWS_SECRET_ACCESS_KEY`         |         |          |
+| `s3Bucket`               | S3 bucket configuration can be defined per git branch or a single bucket              |         |    ✓     |
+| `directoryPath`          | Path to directory which will be uploaded to the bucket                               |         |    ✓     |
+| `removeDirectoryRoot`    | Flag that determines will the root directory of the given `directoryPath` be removed |         |          |
 
 ### Example
 
@@ -76,12 +76,9 @@ options with `accessKeyName` and `secretAccessKeyName`.
         [
             "@rimac-technology/semantic-release-s3",
             {
-                "accessKeyName": "ACCESS_KEY_ENV_VARIABLE_NAME",
-                "secretAccessKeyName": "SECRET_ACCESS_KEY_ENV_VARIABLE_NAME",
-                "bucketConfiguration": {
-                  "branchName" : "s3-bucket-name",
-                  "anotherBranchName" : "another-s3-bucket-name" 
-                },
+                "awsAccessKeyName": "ACCESS_KEY_ENV_VARIABLE_NAME",
+                "awsSecretAccessKeyName": "SECRET_ACCESS_KEY_ENV_VARIABLE_NAME",
+                "s3Bucket": "s3-bucket-name",
                 "directoryPath": "directoryName/**/*",
                 "removeDirectoryRoot": true
             }
