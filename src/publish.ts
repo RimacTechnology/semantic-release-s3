@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-import { globby } from 'globby'
+import globby from 'globby'
 import type { Context } from 'semantic-release'
 
 import { AWS } from './aws'
