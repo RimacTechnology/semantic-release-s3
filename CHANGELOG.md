@@ -1,3 +1,10 @@
+## [2.1.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.0.0...v2.1.0) (2023-02-10)
+
+
+### Features
+
+* build and expose library as `CommonJS` package ([6c79017](https://github.com/RimacTechnology/semantic-release-s3/commit/6c790170a854b7b997136ce8b297ff882af79d71))
+
 ## [2.0.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v1.4.0...v2.0.0) (2023-02-09)
 
 
