@@ -1,6 +1,7 @@
 import fs from 'fs'
 
 import globby from 'globby'
+import * as path from 'path'
 import type { Context } from 'semantic-release'
 
 import { AWS } from './aws'
@@ -17,13 +18,23 @@ export async function publish(config: PluginConfig, context: Context) {
 
     const filePaths = await globby(config.directoryPath)
 
-    let bucketName: string | undefined
+    let s3Bucket: string | undefined
 
     if (typeof config.s3Bucket === 'string') {
-        bucketName = config.s3Bucket
+        s3Bucket = config.s3Bucket
     } else if (typeof config.s3Bucket === 'object') {
-        bucketName = config.s3Bucket[context.branch.name]
+        s3Bucket = config.s3Bucket[context.branch.name]
     }
+
+    const [
+        bucketName,
+        ...bucketPrefixes
+    ] = s3Bucket?.split(path.sep) ?? []
+
+    const bucketPrefix = bucketPrefixes.join(path.sep).replace(/\$([A-Z_]+[A-Z0-9_]*)|\${([A-Z0-9_]*)}/ig, (match, p1, p2) => {
+        return process.env[p1 || p2] ?? match
+    })
+
 
     if (!bucketName) {
         throw new Error('Missing s3 bucket configuration. ' +
@@ -39,7 +50,7 @@ export async function publish(config: PluginConfig, context: Context) {
         })
     }
 
-    const existingFiles = await s3.getExistingFiles(bucketName)
+    const existingFiles = await s3.getExistingFiles(bucketName, bucketPrefix)
 
     const fileDifference = existingFiles.filter((file) => {
         if (config.removeDirectoryRoot) {
@@ -53,7 +64,7 @@ export async function publish(config: PluginConfig, context: Context) {
         filePaths.map(async (filePath, index) => {
             return s3.uploadFile(
                 bucketName as string,
-                removedRootFilesPaths[index] ?? filePath,
+                path.join(bucketPrefix, removedRootFilesPaths[index] ?? filePath),
                 fs.createReadStream(filePath),
             )
         }),

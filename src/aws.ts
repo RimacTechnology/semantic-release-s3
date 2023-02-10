@@ -50,7 +50,7 @@ export class AWS {
         })
     }
 
-    public async getExistingFiles(bucket: string) {
+    public async getExistingFiles(bucket: string, prefix?: string) {
         async function existingFilesKeys(
             s3: S3,
             param: ListObjectsV2Request,
@@ -88,6 +88,7 @@ export class AWS {
             this.awsS3,
             {
                 Bucket: bucket,
+                Prefix: prefix,
             },
         )
     }
