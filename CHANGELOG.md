@@ -1,3 +1,10 @@
+## [2.2.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.1.0...v2.2.0) (2023-02-10)
+
+
+### Features
+
+* replace variables like `$VAR_NAME` from bucket name with `process.env` values ([ef6a657](https://github.com/RimacTechnology/semantic-release-s3/commit/ef6a6577438329aa6e558fd05ef920eaf6f128ac))
+
 ## [2.1.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.0.0...v2.1.0) (2023-02-10)
 
 
