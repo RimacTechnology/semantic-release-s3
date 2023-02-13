@@ -3,7 +3,6 @@
 
 ### Bug Fixes
 
-*  remove file ([9d6a4cf](https://github.com/RimacTechnology/semantic-release-s3/commit/9d6a4cff00236f3744c68c60bd5e27cfb9084074))
 * prevent deleting files from s3 before then new files are uploaded ([9513d5b](https://github.com/RimacTechnology/semantic-release-s3/commit/9513d5b30ae4c37f7c3a10246e2b76c70d360d05))
 
 ## [2.2.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.1.0...v2.2.0) (2023-02-10)
