@@ -50,18 +50,28 @@ export async function publish(config: PluginConfig, context: Context) {
         })
     }
 
-    const existingFiles = await s3.getExistingFiles(bucketName, bucketPrefix)
+    const publishPromises = []
 
-    const fileDifference = existingFiles.filter((file) => {
-        if (config.removeDirectoryRoot) {
-            return !removedRootFilesPaths.includes(file)
-        }
+    if (config.removeDiff) {
+        const existingFiles = await s3.getExistingFiles(bucketName, bucketPrefix)
 
-        return !filePaths.includes(file)
-    })
+        const fileDifference = existingFiles.filter((file) => {
+            if (config.removeDirectoryRoot) {
+                return !removedRootFilesPaths.includes(file)
+            }
 
-    await Promise.all(
-        filePaths.map(async (filePath, index) => {
+            return !filePaths.includes(file)
+        })
+
+        publishPromises.push(...fileDifference.map(async (pathToDelete) => {
+            return s3.deleteFile(
+                bucketName as string,
+                pathToDelete,
+            )
+        }))
+    }
+
+    publishPromises.push(...filePaths.map(async (filePath, index) => {
             return s3.uploadFile(
                 bucketName as string,
                 path.join(bucketPrefix, removedRootFilesPaths[index] ?? filePath),
@@ -70,12 +80,5 @@ export async function publish(config: PluginConfig, context: Context) {
         }),
     )
 
-    await Promise.all(
-        fileDifference.map(async (pathToDelete) => {
-            return s3.deleteFile(
-                bucketName as string,
-                pathToDelete,
-            )
-        }),
-    )
+    await Promise.allSettled(publishPromises)
 }
