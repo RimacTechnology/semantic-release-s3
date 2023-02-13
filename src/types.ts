@@ -20,17 +20,17 @@ export interface PluginConfig extends Config {
      */
     readonly directoryPath: string
     /**
-     * If true, root directory of the given [directoryPath] will be removed
-     *
-     * @default "false"
-     */
-    readonly removeDirectoryRoot?: boolean
-    /**
      * if true, all files which are on remote but not staged for upload will be deleted
      *
      * @default "false"
      */
     readonly removeDiff?: boolean
+    /**
+     * If true, root directory of the given [directoryPath] will be removed
+     *
+     * @default "false"
+     */
+    readonly removeDirectoryRoot?: boolean
     /**
      * Bucket configuration
      *

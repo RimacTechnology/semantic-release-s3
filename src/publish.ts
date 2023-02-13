@@ -1,7 +1,7 @@
 import fs from 'fs'
+import * as path from 'path'
 
 import globby from 'globby'
-import * as path from 'path'
 import type { Context } from 'semantic-release'
 
 import { AWS } from './aws'
@@ -31,10 +31,9 @@ export async function publish(config: PluginConfig, context: Context) {
         ...bucketPrefixes
     ] = s3Bucket?.split(path.sep) ?? []
 
-    const bucketPrefix = bucketPrefixes.join(path.sep).replace(/\$([A-Z_]+[A-Z0-9_]*)|\${([A-Z0-9_]*)}/ig, (match, p1, p2) => {
+    const bucketPrefix = bucketPrefixes.join(path.sep).replace(/\$([_a-z]+\w*)|\${(\w*)}/giu, (match, p1, p2) => {
         return process.env[p1 || p2] ?? match
     })
-
 
     if (!bucketName) {
         throw new Error('Missing s3 bucket configuration. ' +
@@ -65,19 +64,19 @@ export async function publish(config: PluginConfig, context: Context) {
 
         publishPromises.push(...fileDifference.map(async (pathToDelete) => {
             return s3.deleteFile(
-                bucketName as string,
+                bucketName,
                 pathToDelete,
             )
         }))
     }
 
     publishPromises.push(...filePaths.map(async (filePath, index) => {
-            return s3.uploadFile(
-                bucketName as string,
-                path.join(bucketPrefix, removedRootFilesPaths[index] ?? filePath),
-                fs.createReadStream(filePath),
-            )
-        }),
+        return s3.uploadFile(
+            bucketName,
+            path.join(bucketPrefix, removedRootFilesPaths[index] ?? filePath),
+            fs.createReadStream(filePath),
+        )
+    }),
     )
 
     await Promise.allSettled(publishPromises)
