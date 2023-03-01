@@ -1,3 +1,15 @@
+## [2.2.2](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.2.1...v2.2.2) (2023-03-01)
+
+
+### Other
+
+* update deps ([228f875](https://github.com/RimacTechnology/semantic-release-s3/commit/228f875a3692441b970fd6a4283ad85178430e0b))
+
+
+### Code Refactoring
+
+* lower node and yarn requirement closes [#14](https://github.com/RimacTechnology/semantic-release-s3/issues/14) ([228eef2](https://github.com/RimacTechnology/semantic-release-s3/commit/228eef2edf44ab0bc1ce4f36f8b5c9c1f61d7384))
+
 ## [2.2.1](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.2.0...v2.2.1) (2023-02-13)
 
 
