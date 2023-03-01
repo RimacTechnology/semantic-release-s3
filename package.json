@@ -76,8 +76,8 @@
     },
     "packageManager": "yarn@3.4.1",
     "engines": {
-        "node": ">=18.10",
-        "yarn": ">=3"
+        "node": ">=14",
+        "yarn": ">=1"
     },
     "publishConfig": {
         "access": "public"
