@@ -31,7 +31,7 @@ export async function publish(config: PluginConfig, context: Context) {
         ...bucketPrefixes
     ] = s3Bucket?.split(path.sep) ?? []
 
-    const bucketPrefix = bucketPrefixes.join(path.sep).replace(/\$([_a-z]+\w*)|\${(\w*)}/giu, (match, p1, p2) => {
+    const bucketPrefix = bucketPrefixes.join(path.sep).replace(/\$([_a-z]+\w*)|\$\{(\w*)\}/giu, (match, p1, p2) => {
         return process.env[p1 || p2] ?? match
     })
 
