@@ -2,6 +2,7 @@ import fs from 'fs'
 import * as path from 'path'
 
 import globby from 'globby'
+import mime from 'mime-types'
 import type { Context } from 'semantic-release'
 
 import { AWS } from './aws'
@@ -71,10 +72,15 @@ export async function publish(config: PluginConfig, context: Context) {
     }
 
     publishPromises.push(...filePaths.map(async (filePath, index) => {
+        const fileName = path.basename(filePath)
+        // 'application/octet-stream' is the default s3 content type for object uploads
+        const mimeType = mime.lookup(fileName) || 'application/octet-stream'
+
         return s3.uploadFile(
             bucketName,
             path.join(bucketPrefix, removedRootFilesPaths[index] ?? filePath),
             fs.createReadStream(filePath),
+            mimeType
         )
     }),
     )
