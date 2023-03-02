@@ -62,6 +62,7 @@ options with `accessKeyName` and `secretAccessKeyName`.
 | `awsAccessKeyName`       | Environmental variable name that is used to override `AWS_ACCESS_KEY_ID`                                |         |          |
 | `awsSecretAccessKeyName` | Environmental variable name that is used to override `AWS_SECRET_ACCESS_KEY`                            |         |          |
 | `s3Bucket`               | S3 bucket configuration can be defined per git branch or a single bucket                                |         |    ✓     |
+| `objectACL`              | S3 object ACL ("private"|"public-read"|"public-read-write"|"authenticated-read"...)                     |         |          |
 | `directoryPath`          | Path to directory which will be uploaded to the bucket                                                  |         |    ✓     |
 | `removeDirectoryRoot`    | Flag that determines will the root directory of the given `directoryPath` be removed                    |  false  |          |
 | `removeDiff`             | Flag that determines will the file diff which should be uploaded vs files already on s3 will be deleted |  true   |          |
@@ -80,6 +81,7 @@ options with `accessKeyName` and `secretAccessKeyName`.
                 "awsAccessKeyName": "ACCESS_KEY_ENV_VARIABLE_NAME",
                 "awsSecretAccessKeyName": "SECRET_ACCESS_KEY_ENV_VARIABLE_NAME",
                 "s3Bucket": "s3-bucket-name",
+                "objectACL": "public-read",
                 "directoryPath": "directoryName/**/*",
                 "removeDirectoryRoot": true,
                 "removeDiff": false

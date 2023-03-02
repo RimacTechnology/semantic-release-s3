@@ -80,7 +80,8 @@ export async function publish(config: PluginConfig, context: Context) {
             bucketName,
             path.join(bucketPrefix, removedRootFilesPaths[index] ?? filePath),
             fs.createReadStream(filePath),
-            mimeType
+            mimeType,
+            config.objectACL
         )
     }),
     )
