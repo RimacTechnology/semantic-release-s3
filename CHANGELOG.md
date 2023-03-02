@@ -1,3 +1,10 @@
+## [2.2.4](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.2.3...v2.2.4) (2023-03-02)
+
+
+### Bug Fixes
+
+* **aws:** handle file content-type correctly ([#20](https://github.com/RimacTechnology/semantic-release-s3/issues/20)) ([766f1f1](https://github.com/RimacTechnology/semantic-release-s3/commit/766f1f143d65cdbd56f7a089bedf337e41379018))
+
 ## [2.2.3](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.2.2...v2.2.3) (2023-03-02)
 
 
