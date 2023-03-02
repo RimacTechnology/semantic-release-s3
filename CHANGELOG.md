@@ -1,3 +1,10 @@
+## [2.2.3](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.2.2...v2.2.3) (2023-03-02)
+
+
+### Bug Fixes
+
+* **publish:** correct invalid regex ([f9baa6e](https://github.com/RimacTechnology/semantic-release-s3/commit/f9baa6e78f95bfb648e42109be6197175d7ea8e2))
+
 ## [2.2.2](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.2.1...v2.2.2) (2023-03-01)
 
 
