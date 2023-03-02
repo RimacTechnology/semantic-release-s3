@@ -9,6 +9,7 @@ import {
 import type {
     ListObjectsV2Request,
     ManagedUpload,
+    PutObjectRequest,
 } from 'aws-sdk/clients/s3'
 import type { Context } from 'semantic-release'
 
@@ -93,10 +94,11 @@ export class AWS {
         )
     }
 
-    public async uploadFile(bucket: string, key: string, body: ReadStream) {
-        const uploadParams = {
+    public async uploadFile(bucket: string, key: string, body: ReadStream, objectMimeType: string) {
+        const uploadParams: PutObjectRequest = {
             Body: body,
             Bucket: bucket,
+            ContentType: objectMimeType,
             Key: key,
         }
 
