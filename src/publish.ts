@@ -2,6 +2,7 @@ import fs from 'fs'
 import * as path from 'path'
 
 import globby from 'globby'
+import template from 'lodash.template'
 import mime from 'mime-types'
 import type { Context } from 'semantic-release'
 
@@ -27,10 +28,18 @@ export async function publish(config: PluginConfig, context: Context) {
         s3Bucket = config.s3Bucket[context.branch.name]
     }
 
+    const s3BucketWithResolvedVariables = template(s3Bucket)(
+        {
+            branch: context.branch.name,
+            lastRelease: context.lastRelease,
+            nextRelease: context.nextRelease,
+        }
+    )
+
     const [
         bucketName,
         ...bucketPrefixes
-    ] = s3Bucket?.split(path.sep) ?? []
+    ] = s3BucketWithResolvedVariables.split(path.sep)
 
     const bucketPrefix = bucketPrefixes.join(path.sep).replace(/\$([_a-z]+\w*)|\$\{(\w*)\}/giu, (match, p1, p2) => {
         return process.env[p1 || p2] ?? match

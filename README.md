@@ -67,6 +67,24 @@ options with `accessKeyName` and `secretAccessKeyName`.
 | `removeDirectoryRoot`    | Flag that determines will the root directory of the given `directoryPath` be removed                    |  false  |          |
 | `removeDiff`             | Flag that determines will the file diff which should be uploaded vs files already on s3 will be deleted |  true   |          |
 
+
+#### `s3Bucket option`
+
+The s3Bucket name can contain variable, is is parsed with [Lodash template](https://lodash.com/docs#template). The following variables are available:
+
+| Parameter      | Description                                                                          |
+| -------------- | ------------------------------------------------------------------------------------ |
+| `branch.name`  | The branch name.                                                                     |
+| `lastRelease`  | `Object` with `version`, `gitTag` and `gitHead` of the last release.                 |
+| `nextRelease`  | `Object` with `version`, `gitTag`, `gitHead` and `notes` of the release being done.  |
+
+##### `s3Bucket` examples
+
+The `s3Bucket` `my-bucket/${nextRelease.version}` will generate push your object to this path:
+
+> my-bucket/v1.0.0/[your-directory-content]
+
+
 ### Example
 
 ```json

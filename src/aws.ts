@@ -97,14 +97,11 @@ export class AWS {
 
     public async uploadFile(bucket: string, key: string, body: ReadStream, objectMimeType: string, objectACL?: ObjectCannedACL) {
         const uploadParams: PutObjectRequest = {
+            ACL: objectACL,
             Body: body,
             Bucket: bucket,
             ContentType: objectMimeType,
             Key: key,
-        }
-
-        if (objectACL) {
-            uploadParams.ACL = objectACL
         }
 
         return new Promise((resolve, reject) => {
