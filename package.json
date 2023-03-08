@@ -48,6 +48,7 @@
         "aggregate-error": "^3.1.0",
         "aws-sdk": "^2.1325.0",
         "globby": "^11.1.0",
+        "lodash.template": "^4.5.0",
         "mime-types": "^2.1.35"
     },
     "devDependencies": {
@@ -60,6 +61,7 @@
         "@semantic-release/github": "^8.0.7",
         "@semantic-release/npm": "^9.0.2",
         "@semantic-release/release-notes-generator": "^10.0.3",
+        "@types/lodash.template": "^4.5.1",
         "@types/mime-types": "^2.1.1",
         "@types/semantic-release": "^20.0.1",
         "commitizen": "^4.3.0",

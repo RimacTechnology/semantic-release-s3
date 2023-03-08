@@ -1,3 +1,4 @@
+import type { ObjectCannedACL } from 'aws-sdk/clients/s3'
 import type { Config } from 'semantic-release'
 
 export interface PluginConfig extends Config {
@@ -19,6 +20,12 @@ export interface PluginConfig extends Config {
      * @default ""
      */
     readonly directoryPath: string
+    /**
+     * Object ACL
+     *
+     * @default ""
+     */
+    readonly objectACL?: ObjectCannedACL
     /**
      * if true, all files which are on remote but not staged for upload will be deleted
      *
