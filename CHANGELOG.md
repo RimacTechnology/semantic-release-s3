@@ -1,3 +1,11 @@
+## [2.3.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.2.4...v2.3.0) (2023-03-08)
+
+
+### Features
+
+* **aws:** add objectACL param for s3 upload ([7415191](https://github.com/RimacTechnology/semantic-release-s3/commit/74151919ef431c0eeeea618edc80ff9c867f9c7b))
+* **publish:** add possibility to use semantic context for s3Bucket option ([c880601](https://github.com/RimacTechnology/semantic-release-s3/commit/c8806016b6df86948f510d5d2ec3d068bf336e7d))
+
 ## [2.2.4](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.2.3...v2.2.4) (2023-03-02)
 
 
