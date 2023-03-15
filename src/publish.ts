@@ -96,4 +96,9 @@ export async function publish(config: PluginConfig, context: Context) {
     )
 
     await Promise.allSettled(publishPromises)
+
+    return {
+        name: 'S3 release',
+        url: `https://${bucketName}.s3.amazonaws.com/${bucketPrefix}`,
+    }
 }
