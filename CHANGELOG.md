@@ -1,3 +1,10 @@
+## [2.4.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.3.0...v2.4.0) (2023-03-20)
+
+
+### Features
+
+* **publish:** return release context to be able to use it in other plugins ([8d5ee96](https://github.com/RimacTechnology/semantic-release-s3/commit/8d5ee9624d3fcd1aa6663ec763f1b466574bd2ef))
+
 ## [2.3.0](https://github.com/RimacTechnology/semantic-release-s3/compare/v2.2.4...v2.3.0) (2023-03-08)
 
 
